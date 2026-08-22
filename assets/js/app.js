@@ -196,7 +196,7 @@ function authPageHref(page = 'login.html') {
 function separatedPortalHome(user) {
   if (user.role === 'admin') return 'admin/dashboard.html';
   if (user.role === 'coach') return 'coach/dashboard.html';
-  if (user.traineeAccess) return 'trainee/dashboard.html';
+  if (user.role === 'trainee' || user.traineeAccess) return 'trainee/dashboard.html';
   return 'user/dashboard.html';
 }
 
@@ -205,7 +205,7 @@ function separatedPortalDestination(user, next) {
     ? 'admin'
     : user.role === 'coach'
       ? 'coach'
-      : user.traineeAccess
+      : (user.role === 'trainee' || user.traineeAccess)
         ? 'trainee'
         : 'user';
 
@@ -220,13 +220,27 @@ function separatedPortalDestination(user, next) {
   return separatedPortalHome(user);
 }
 
-function loginSubmit(event) {
+async function loginSubmit(event) {
   event.preventDefault();
 
   const state = load();
   const formData = new FormData(event.target);
   const email = String(formData.get('email')).trim().toLowerCase();
-  const password = formData.get('password');
+  const password = String(formData.get('password'));
+
+  if (window.supabaseClient) {
+    const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
+    if (error) {
+      console.warn("Supabase auth failed:", error.message);
+      if (error.message.toLowerCase().includes("email not confirmed")) {
+        return authStatus('Please confirm your email address before logging in.');
+      }
+      // Continue to local auth to support mock users (admin/coach)
+    }
+  }
 
   const user = state.users.find(item =>
     item.email.toLowerCase() === email && item.password === password
@@ -246,7 +260,7 @@ function loginSubmit(event) {
   location.href = separatedPortalDestination(user, next);
 }
 function authStatus(m){const x=$('#authStatus');if(x){x.textContent=m;x.classList.add('show')}else toast(m)}
-function registerSubmit(event) {
+async function registerSubmit(event) {
   event.preventDefault();
 
   const state = load();
@@ -257,16 +271,36 @@ function registerSubmit(event) {
   }
 
   const email = String(formData.get('email')).trim();
+  const password = String(formData.get('password'));
+  const role = formData.get('role') || 'user';
 
   if (state.users.some(user => user.email.toLowerCase() === email.toLowerCase())) {
     return authStatus('Email is already registered.');
+  }
+
+  if (window.supabaseClient) {
+    const { data: authData, error: authError } = await window.supabaseClient.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          first_name: formData.get('first'),
+          last_name: formData.get('last'),
+          role: role
+        }
+      }
+    });
+
+    if (authError) {
+      return authStatus(authError.message);
+    }
   }
 
   const id = uid('U');
 
   const user = {
     id,
-    role: 'user',
+    role: role,
     first: formData.get('first'),
     middle: formData.get('middle'),
     last: formData.get('last'),
@@ -275,9 +309,9 @@ function registerSubmit(event) {
     gender: formData.get('gender'),
     mobile: formData.get('mobile'),
     email,
-    password: formData.get('password'),
+    password,
     status: 'Active',
-    traineeAccess: false,
+    traineeAccess: role === 'trainee',
     warningCount: 0,
     accountStanding: 'Good Standing',
     restrictedUntil: '',
@@ -312,7 +346,7 @@ function togglePassword(button){
  button.setAttribute('aria-label',show?'Hide password':'Show password');
  button.setAttribute('title',show?'Hide password':'Show password');
 }
-function bindAuth(){const dob=$('[name=dob]');if(dob){dob.addEventListener('change',()=>{const a=calcAge(dob.value);$('[name=age]').value=a;$('#guardianBox')?.classList.toggle('hidden',!(a!==''&&a<18))})}$('#loginForm')?.addEventListener('submit',loginSubmit);$('#registerForm')?.addEventListener('submit',registerSubmit);$('#forgotForm')?.addEventListener('submit',forgotSubmit);$$('[data-public-inquiry]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();publicInquiry(f)}));if(new URLSearchParams(location.search).get('registered')==='true'){authStatus('Account created successfully! Please log in.')}}
+function bindAuth(){const dob=$('[name=dob]');if(dob){dob.addEventListener('change',()=>{const a=calcAge(dob.value);$('[name=age]').value=a;$('#guardianBox')?.classList.toggle('hidden',!(a!==''&&a<18))})}$('#loginForm')?.addEventListener('submit',loginSubmit);$('#registerForm')?.addEventListener('submit',registerSubmit);$('#forgotForm')?.addEventListener('submit',forgotSubmit);$$('[data-public-inquiry]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();publicInquiry(f)}));if(new URLSearchParams(location.search).get('registered')==='true'){authStatus('Account created successfully! Please check your email to verify your account before logging in.')}}
 
 const NAV={
  user:[['dashboard','⌂','Dashboard'],['book','＋','Book a Court'],['bookings','▤','My Bookings'],['announcements','◉','Announcements']],
