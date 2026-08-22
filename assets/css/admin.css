@@ -1,0 +1,300 @@
+/* =========================================================
+   SPORTIVO ADMIN CONTENT
+========================================================= */
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, .8fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.admin-section-card {
+  min-width: 0;
+}
+
+.admin-section-head,
+.admin-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.admin-section-head h3,
+.admin-card-title-row h3 {
+  margin: 0;
+}
+
+.admin-attention-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-attention-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+  background: #fff;
+}
+
+.admin-attention-list a:hover {
+  border-color: #b8b5c5;
+  transform: translateY(-1px);
+}
+
+.admin-attention-list strong {
+  min-width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #f2f1f5;
+}
+
+.admin-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-overview-grid.compact {
+  margin: 16px 0;
+}
+
+.admin-overview-grid > div {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fafafa;
+}
+
+.admin-overview-grid span,
+.admin-report-card span {
+  display: block;
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: 5px;
+}
+
+.admin-overview-grid strong {
+  font-size: 1.35rem;
+}
+
+.admin-quick-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-quick-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.admin-empty {
+  min-height: 150px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 28px;
+  border: 1px dashed #ccc9d3;
+  border-radius: 16px;
+  color: var(--muted);
+}
+
+.admin-empty strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.admin-trainee-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.admin-trainee-chips span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f2f1f5;
+  font-size: .82rem;
+}
+
+.admin-court-photo {
+  width: 100%;
+  height: 175px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.55);
+}
+
+.admin-report-card {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-report-card strong {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.admin-report-card small {
+  color: var(--muted);
+}
+
+.admin-settings-card .btn {
+  margin-top: 16px;
+}
+
+.input-suffix {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.input-suffix input {
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.input-suffix span {
+  padding: 0 12px;
+  color: var(--muted);
+  font-size: .84rem;
+  white-space: nowrap;
+}
+
+.table-actions {
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-section-head,
+  .admin-card-title-row {
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   ADMIN FEATURE PACK V42
+========================================================= */
+.admin-filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 14px;
+}
+
+.admin-filterbar select,
+.admin-filterbar input {
+  min-width: 180px;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.admin-card-actions,
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-card-actions .btn {
+  flex: 1 1 160px;
+  justify-content: center;
+}
+
+.admin-check-list {
+  display: grid;
+  gap: 9px;
+  max-height: 360px;
+  overflow: auto;
+  margin: 14px 0 18px;
+  padding-right: 5px;
+}
+
+.admin-check-list label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.admin-check-list label span {
+  display: grid;
+  gap: 3px;
+}
+
+.admin-check-list small {
+  color: var(--muted);
+}
+
+.btn-danger {
+  background: #a52f35 !important;
+  border-color: #a52f35 !important;
+  color: #fff !important;
+}
+
+.notice.success {
+  margin-top: 14px;
+  background: #f2f8f3;
+  border-color: #c9ddcd;
+}
+
+.notice.danger {
+  margin-top: 14px;
+  background: #fff2f2;
+  border-color: #efc8c8;
+}
+
+.hidden-admin-date {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .admin-filterbar > * {
+    width: 100%;
+  }
+}
+
+
+/* V44 Court detail presentation */
+.admin-court-description { min-height: 3.2em; line-height: 1.55; }
+.admin-court-editor-head { display:flex; gap:18px; align-items:center; margin-bottom:22px; }
+.admin-court-editor-image { width:150px; height:105px; border-radius:18px; object-fit:cover; border:1px solid rgba(0,0,0,.08); }
+@media (max-width: 680px) { .admin-court-editor-head { align-items:flex-start; flex-direction:column; } .admin-court-editor-image { width:100%; height:180px; } }

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPORTIVO | Main Page Reference</title>
+  
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* =========================================================
+       SPORTIVO — SYSTEM COLOR PALETTE & VARIABLES
+       ========================================================= */
+    :root {
+      --sportivo-dark: #21222D;
+      --sportivo-purple: #958CE8;
+      --sportivo-purple-dark: #7068C9;
+      --sportivo-purple-soft: #EFEDFF;
+      --sportivo-blue: #ACD1FD;
+      --sportivo-gray: #DBDBE5;
+      --sportivo-bg: #F7F7FB;
+      --sportivo-surface: #FFFFFF;
+      --sportivo-text: #21222D;
+      --sportivo-muted: #6F7180;
+      
+      --shadow-sm: 0 4px 12px rgba(33, 34, 45, 0.05);
+      --shadow-md: 0 12px 34px rgba(33, 34, 45, 0.06);
+      --shadow-lg: 0 22px 70px rgba(33, 34, 45, 0.12);
+      
+      --radius-sm: 12px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--sportivo-bg);
+      color: var(--sportivo-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================================================
+       TYPOGRAPHY & UTILITIES
+       ========================================================= */
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sportivo-purple-dark);
+    }
+
+    .eyebrow.light {
+      color: var(--sportivo-blue);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge.purple {
+      background: var(--sportivo-purple-soft);
+      color: var(--sportivo-purple-dark);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      height: 48px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-light {
+      background: var(--sportivo-surface);
+      color: var(--sportivo-dark);
+    }
+
+    .btn-light:hover {
+      background: #F8F9FA;
+    }
+
+    .btn-blue {
+      background: var(--sportivo-blue);
+      color: var(--sportivo-dark);
+    }
+
+    .btn-blue:hover {
+      background: #9BBDF2;
+    }
+
+    /* =========================================================
+       HEADER NAVIGATION
+       ========================================================= */
+    .site-header {
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      margin: 0 24px;
+      padding: 0 32px;
+      height: 72px;
+      border-radius: var(--radius-lg);
+      background: var(--sportivo-dark);
+      color: var(--sportivo-surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .brand-dots i {
+      display: block;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .brand-dots i:nth-child(1) { width: 8px; height: 8px; }
+    .brand-dots i:nth-child(2) { width: 6px; height: 6px; }
+    .brand-dots i:nth-child(3) { width: 10px; height: 10px; }
+
+    .main-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .main-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--sportivo-surface);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .header-actions .btn {
+      height: 40px;
+      font-size: 0.85rem;
+      padding: 0 20px;
+    }
+
+    /* =========================================================
+       HERO SECTION
+       ========================================================= */
+    .hero {
+      padding: 24px;
+      margin-top: -92px; /* Pull up behind header */
+    }
+
+    .hero-wrap {
+      min-height: 80vh;
+      border-radius: var(--radius-xl);
+      padding: 160px 8% 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: 
+        linear-gradient(90deg, rgba(33, 34, 45, 0.95) 0%, rgba(80, 76, 126, 0.8) 50%, rgba(172, 209, 253, 0.3) 100%),
+        url('https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--sportivo-surface);
+    }
+
+    .hero-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(149, 140, 232, 0.15), rgba(172, 209, 253, 0.15));
+      mix-blend-mode: color;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      animation: fadeUp 0.8s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      margin: 16px 0 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       SECTIONS & GRIDS
+       ========================================================= */
+    .section {
+      padding: 100px 8%;
+    }
+
+    .section.bg-white {
+      background-color: var(--sportivo-surface);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.05em;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* =========================================================
+       CARDS
+       ========================================================= */
+    .card {
+      background: var(--sportivo-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--sportivo-gray);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sportivo-purple);
+    }
+
+    /* Program Card */
+    .program-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      filter: saturate(0.8) contrast(1.1);
+      transition: var(--transition);
+    }
+
+    .program-card:hover img {
+      filter: saturate(1) contrast(1);
+      transform: scale(1.05);
+    }
+
+    .program-img-wrapper {
+      overflow: hidden;
+    }
+
+    .program-body {
+      padding: 24px;
+      background: linear-gradient(180deg, var(--sportivo-surface), var(--sportivo-bg));
+    }
+
+    .program-body h3 {
+      font-size: 1.5rem;
+      margin: 8px 0 12px;
+    }
+
+    .program-body p {
+      color: var(--sportivo-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      min-height: 48px;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--sportivo-dark);
+    }
+
+    .link-arrow svg {
+      transition: var(--transition);
+    }
+
+    .card:hover .link-arrow svg {
+      transform: translateX(4px);
+      color: var(--sportivo-purple);
+    }
+
+    /* Clean Card (Coaches & Announcements) */
+    .clean-card {
+      padding: 32px;
+      background: var(--sportivo-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--sportivo-gray);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .clean-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .avatar-circle {
+      width: 64px;
+      height: 64px;
+      background: var(--sportivo-dark);
+      color: var(--sportivo-surface);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+    }
+
+    .clean-card h3 {
+      font-size: 1.4rem;
+      margin: 16px 0 12px;
+    }
+
+    .clean-card p {
+      color: var(--sportivo-muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer {
+      background: var(--sportivo-dark);
+      color: var(--sportivo-surface);
+      padding: 80px 8% 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .footer-col a:hover {
+      color: var(--sportivo-surface);
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      letter-spacing: 0;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-nav { display: none; }
+      .hero-wrap { padding: 120px 6% 60px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="brand">
+      <span class="brand-dots">
+        <i></i><i></i><i></i>
+      </span>
+      SPORTIVO
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="active">Home</a>
+      <a href="#">Programs</a>
+      <a href="#">Coaches</a>
+      <a href="#">Availability</a>
+      <a href="#">Announcements</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#" class="btn btn-light">Login</a>
+      <a href="#" class="btn btn-blue">Register</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-wrap">
+        <div class="hero-content">
+          <span class="eyebrow light">SPORTIVO MANAGEMENT SYSTEM</span>
+          <h1>Train.<br>Book.<br>Stay organized.</h1>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-blue">Book a Court / Slot</a>
+            <a href="#" class="btn btn-light">Explore Programs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section class="section bg-white">
+      <div class="section-header">
+        <span class="eyebrow">PROGRAMS & TRAINING</span>
+        <h2>Choose your sport.</h2>
+      </div>
+      
+      <div class="grid-4">
+        <!-- Card 1 -->
+        <article class="card program-card">
+          <div class="program-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?q=80&w=800&auto=format&fit=crop" alt="Badminton Court">
+          </div>
+          <div class="program-body">
+            <span class="eyebrow">BADMINTON</span>
+            <h3>Badminton</h3>
+            <p>Footwork, racket control, serving and match fundamentals.</p>
+            <a href="#" class="link-arrow">
+              View Program 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card program-card">
+          <div class="program-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop" alt="Basketball Court">
+          </div>
+          <div class="program-body">
+            <span class="eyebrow">BASKETBALL</span>
+            <h3>Basketball</h3>
+            <p>Ball handling, shooting, movement and team fundamentals.</p>
+            <a href="#" class="link-arrow">
+              View Program 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card program-card">
+          <div class="program-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=800&auto=format&fit=crop" alt="Volleyball Court">
+          </div>
+          <div class="program-body">
+            <span class="eyebrow">VOLLEYBALL</span>
+            <h3>Volleyball</h3>
+            <p>Passing, serving, positioning and team coordination.</p>
+            <a href="#" class="link-arrow">
+              View Program 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card program-card">
+          <div class="program-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1678125547468-cb0a76efc25e?q=80&w=800&auto=format&fit=crop" alt="Pickleball Court">
+          </div>
+          <div class="program-body">
+            <span class="eyebrow">PICKLEBALL</span>
+            <h3>Pickleball</h3>
+            <p>Paddle control, serving, movement and court strategy.</p>
+            <a href="#" class="link-arrow">
+              View Program 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COACHES SECTION -->
+    <section class="section">
+      <div class="section-header">
+        <span class="eyebrow">COACHES</span>
+        <h2>Training support.</h2>
+      </div>
+      
+      <div class="grid-3">
+        <article class="clean-card">
+          <div class="avatar-circle">KR</div>
+          <span class="badge purple">BADMINTON</span>
+          <h3>Kevin Reyes</h3>
+          <p>Footwork, development and match strategy.</p>
+        </article>
+        
+        <article class="clean-card">
+          <div class="avatar-circle">MS</div>
+          <span class="badge purple">BASKETBALL</span>
+          <h3>Marco Santos</h3>
+          <p>Ball handling, shooting and team development.</p>
+        </article>
+        
+        <article class="clean-card">
+          <div class="avatar-circle">AC</div>
+          <span class="badge purple">VOLLEYBALL</span>
+          <h3>Angela Cruz</h3>
+          <p>Fundamentals, positioning and team training.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ANNOUNCEMENTS SECTION -->
+    <section class="section bg-white">
+      <div class="section-header">
+        <span class="eyebrow">ANNOUNCEMENTS</span>
+        <h2>Only useful updates.</h2>
+      </div>
+      
+      <div class="grid-3">
+        <article class="clean-card">
+          <span class="badge purple">FACILITY</span>
+          <h3>Court Maintenance</h3>
+          <p>Scheduled court maintenance will be posted here before affected bookings.</p>
+        </article>
+        
+        <article class="clean-card">
+          <span class="badge purple">TRAINING</span>
+          <h3>Schedule Updates</h3>
+          <p>Confirmed training schedule changes are sent through the notification bell.</p>
+        </article>
+        
+        <article class="clean-card">
+          <span class="badge purple">POLICY</span>
+          <h3>Booking Grace Period</h3>
+          <p>Confirmed bookings have a 15-minute grace period before no-show release.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="brand" style="margin-bottom: 16px; color: white;">
+          <span class="brand-dots">
+            <i></i><i></i><i></i>
+          </span>
+          SPORTIVO
+        </a>
+        <p>Court reservations and sports training management.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>info@sportivo.com</p>
+        <p>0917 123 4567</p>
+        <p>6:00 AM – 10:00 PM</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Booking Policies</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 SPORTIVO Management System</p>
+    </div>
+  </footer>
+
+</body>
+</html>

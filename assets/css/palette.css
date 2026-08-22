@@ -1,0 +1,220 @@
+/* =========================================================
+   SPORTIVO V46 — SYSTEM COLOR PALETTE
+   Primary Dark   #21222D
+   Purple         #958CE8
+   Pastel Blue    #ACD1FD
+   Soft Gray      #DBDBE5
+========================================================= */
+:root {
+  --sportivo-dark: #21222D;
+  --sportivo-purple: #958CE8;
+  --sportivo-blue: #ACD1FD;
+  --sportivo-gray: #DBDBE5;
+  --sportivo-white: #FFFFFF;
+  --sportivo-bg: #F7F7FB;
+  --sportivo-surface: #FFFFFF;
+  --sportivo-text: #21222D;
+  --sportivo-muted: #6F7180;
+  --sportivo-border: #DBDBE5;
+  --sportivo-purple-soft: #EFEDFF;
+  --sportivo-blue-soft: #EEF7FF;
+
+  /* Compatibility with existing SPORTIVO components */
+  --forest: #21222D;
+  --charcoal: #343644;
+  --sage: #958CE8;
+  --cream: #ACD1FD;
+  --paper: #F7F7FB;
+  --mist: #F0F1F7;
+  --line: #DBDBE5;
+  --muted: #6F7180;
+  --glass: rgba(255, 255, 255, .86);
+  --shadow: 0 18px 48px rgba(33, 34, 45, .10);
+}
+
+body {
+  color: var(--sportivo-text);
+  background: var(--sportivo-bg);
+}
+
+/* Navigation / portal */
+.site-header,
+.sidebar {
+  background: var(--sportivo-dark) !important;
+}
+
+.sidebar .side-nav button:hover,
+.sidebar .side-nav button.active {
+  background: var(--sportivo-purple-soft) !important;
+  color: var(--sportivo-dark) !important;
+}
+
+.profile-entry {
+  border-color: rgba(219, 219, 229, .22) !important;
+}
+
+.topbar {
+  background: rgba(247, 247, 251, .92) !important;
+  border-color: var(--sportivo-gray) !important;
+}
+
+.portal-shell {
+  background: var(--sportivo-bg) !important;
+}
+
+/* Surfaces */
+.card,
+.table-wrap,
+.auth-card,
+.program-card,
+.time-grid,
+.notice,
+.modal-card {
+  border-color: var(--sportivo-gray) !important;
+  box-shadow: var(--shadow);
+}
+
+/* Buttons */
+.btn-dark,
+.btn-primary {
+  background: var(--sportivo-dark) !important;
+  color: #fff !important;
+}
+
+.btn-sage,
+.btn-accent {
+  background: var(--sportivo-purple) !important;
+  color: #fff !important;
+}
+
+.btn-cream {
+  background: var(--sportivo-blue) !important;
+  color: var(--sportivo-dark) !important;
+}
+
+.btn-light {
+  background: #fff !important;
+  color: var(--sportivo-dark) !important;
+  border-color: var(--sportivo-gray) !important;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 22px rgba(33, 34, 45, .12);
+}
+
+/* Form controls */
+.field input,
+.field select,
+.field textarea,
+.top-search,
+select,
+input,
+textarea {
+  border-color: var(--sportivo-gray);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--sportivo-purple) !important;
+  box-shadow: 0 0 0 3px rgba(149, 140, 232, .16) !important;
+}
+
+/* Labels / chips */
+.eyebrow {
+  color: #7068C9 !important;
+}
+
+.badge.sage {
+  background: var(--sportivo-purple-soft) !important;
+  color: #5D56B5 !important;
+}
+
+.badge.dark {
+  background: var(--sportivo-dark) !important;
+}
+
+.badge.pending {
+  background: #EEF7FF !important;
+  color: #456B96 !important;
+}
+
+/* Calendar / schedule */
+.slot.confirmed {
+  background: var(--sportivo-purple) !important;
+  color: #fff !important;
+}
+
+.slot.training {
+  background: var(--sportivo-blue) !important;
+  color: var(--sportivo-dark) !important;
+}
+
+.slot.available {
+  background: #F5F6FA !important;
+  color: var(--sportivo-dark) !important;
+  border-color: #BFC1CF !important;
+}
+
+.legend-dot.confirmed,
+.legend-dot.booked {
+  background: var(--sportivo-purple) !important;
+}
+
+.legend-dot.training {
+  background: var(--sportivo-blue) !important;
+}
+
+.legend-dot.available {
+  background: var(--sportivo-gray) !important;
+}
+
+/* Landing page image treatment: same palette, without losing the sports photo. */
+.hero-wrap {
+  background:
+    linear-gradient(90deg, rgba(33, 34, 45, .94) 0%, rgba(80, 76, 126, .78) 48%, rgba(172, 209, 253, .30) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/7/78/Indoor_badminton_court.jpg') center/cover no-repeat !important;
+}
+
+.hero-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(149, 140, 232, .18), rgba(172, 209, 253, .16));
+  mix-blend-mode: color;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.program-card img {
+  filter: saturate(.68) contrast(.98) hue-rotate(8deg);
+}
+
+.program-card {
+  background: linear-gradient(180deg, #fff, #F7F7FB) !important;
+}
+
+/* Authentication image panel follows the same palette. */
+.auth-side {
+  background:
+    linear-gradient(145deg, rgba(33, 34, 45, .95), rgba(80, 76, 126, .82)),
+    url('https://upload.wikimedia.org/wikipedia/commons/6/6d/Pickleball_court_in_La_Crosse%2C_Wisconsin_02.jpg') center/cover no-repeat !important;
+  background-blend-mode: multiply, normal;
+}
+
+.auth-page {
+  background: linear-gradient(135deg, #F7F7FB, #EFEDFF 50%, #EEF7FF) !important;
+}
+
+/* Selection */
+::selection {
+  background: var(--sportivo-purple);
+  color: #fff;
+}

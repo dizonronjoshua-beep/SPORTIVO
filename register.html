@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="SPORTIVO Management System" name="description"/>
+  <title>
+   Register | SPORTIVO
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+  <link href="assets/css/modules/public/register.css" rel="stylesheet"/>
+   <link href="assets/css/palette.css" rel="stylesheet"/>
+  <link href="assets/css/v65-integrated.css" rel="stylesheet"/>
+</head>
+ <body>
+  <main class="auth-page">
+   <section class="auth-card">
+    <aside class="auth-side">
+     <a class="brand auth-brand" href="index.html">
+      <span class="brand-dots">
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+      </span>
+      <strong>
+       SPORTIVO
+      </strong>
+     </a>
+     <div>
+      <span class="eyebrow light">
+       ONE REGISTRATION
+      </span>
+      <h1>
+       Create your account.
+      </h1>
+      <p>
+       Book sports courts, request expert training, and track your athletic journey all in one place.
+      </p>
+     </div>
+    </aside>
+    <section class="auth-panel">
+     <a aria-label="Close" class="icon-btn auth-close" href="index.html">
+      ×
+     </a>
+     <span class="eyebrow">
+      CREATE ACCOUNT
+     </span>
+     <h2>
+      Registration
+     </h2>
+     <form class="auth-form" id="registerForm">
+      <section class="auth-section">
+       <h3>
+        Personal Information
+       </h3>
+       <div class="form-grid-3">
+        <div class="field">
+         <label>
+          First Name *
+         </label>
+         <input name="first" required=""/>
+        </div>
+        <div class="field">
+         <label>
+          Middle Name
+         </label>
+         <input name="middle"/>
+        </div>
+        <div class="field">
+         <label>
+          Last Name *
+         </label>
+         <input name="last" required=""/>
+        </div>
+        <div class="field">
+         <label>
+          Suffix
+         </label>
+         <input name="suffix"/>
+        </div>
+        <div class="field">
+         <label>
+          Date of Birth *
+         </label>
+         <input name="dob" required="" type="date"/>
+        </div>
+        <div class="field">
+         <label>
+          Age
+         </label>
+         <input name="age" readonly=""/>
+        </div>
+        <div class="field">
+         <label>
+          Gender *
+         </label>
+         <select name="gender" required="">
+          <option value="">
+           Select
+          </option>
+          <option>
+           Male
+          </option>
+          <option>
+           Female
+          </option>
+          <option>
+           Prefer not to say
+          </option>
+         </select>
+        </div>
+        <div class="field">
+         <label>
+          Mobile *
+         </label>
+         <input name="mobile" required=""/>
+        </div>
+        <div class="field">
+         <label>
+          Email *
+         </label>
+         <input name="email" required="" type="email"/>
+        </div>
+       </div>
+      </section>
+      <section class="auth-section">
+       <h3>
+        Address
+       </h3>
+       <div class="form-grid-3">
+        <div class="field">
+         <label>
+          House / Unit
+         </label>
+         <input name="house"/>
+        </div>
+        <div class="field">
+         <label>
+          Street
+         </label>
+         <input name="street"/>
+        </div>
+        <div class="field">
+         <label>
+          Barangay
+         </label>
+         <input name="barangay"/>
+        </div>
+        <div class="field">
+         <label>
+          City / Municipality
+         </label>
+         <input name="city"/>
+        </div>
+        <div class="field">
+         <label>
+          Province
+         </label>
+         <input name="province"/>
+        </div>
+        <div class="field">
+         <label>
+          ZIP
+         </label>
+         <input name="zip"/>
+        </div>
+       </div>
+      </section>
+      <section class="auth-section">
+       <h3>
+        Account Security
+       </h3>
+       <div class="form-grid-2">
+        <div class="field">
+         <label>
+          Password *
+         </label>
+         <div class="password-wrap">
+          <input minlength="6" name="password" required="" type="password"/>
+          <button aria-label="Show password" class="password-toggle" onclick="togglePassword(this)" type="button">
+           <svg viewbox="0 0 24 24">
+            <path d="M2.3 12s3.5-6 9.7-6 9.7 6 9.7 6-3.5 6-9.7 6S2.3 12 2.3 12Z">
+            </path>
+            <circle cx="12" cy="12" r="2.7">
+            </circle>
+           </svg>
+          </button>
+         </div>
+        </div>
+        <div class="field">
+         <label>
+          Confirm Password *
+         </label>
+         <div class="password-wrap">
+          <input minlength="6" name="confirm" required="" type="password"/>
+          <button aria-label="Show password" class="password-toggle" onclick="togglePassword(this)" type="button">
+           <svg viewbox="0 0 24 24">
+            <path d="M2.3 12s3.5-6 9.7-6 9.7 6 9.7 6-3.5 6-9.7 6S2.3 12 2.3 12Z">
+            </path>
+            <circle cx="12" cy="12" r="2.7">
+            </circle>
+           </svg>
+          </button>
+         </div>
+        </div>
+       </div>
+      </section>
+      <section class="auth-section">
+       <label class="check-row">
+        <input required="" type="checkbox"/>
+        <span>
+         I confirm that my information is correct and I agree to SPORTIVO's Terms &amp; Conditions and Privacy Notice.
+        </span>
+       </label>
+      </section>
+      <button class="btn btn-dark full">
+       Create User Account
+      </button>
+      <div class="auth-status" id="authStatus">
+      </div>
+     </form>
+    </section>
+   </section>
+  </main>
+  <div class="modal-backdrop" id="modalRoot">
+  </div>
+  <div class="toast">
+  </div>
+  <script type="module" src="/assets/js/supabase.js"></script>
+  <script src="assets/js/app.js">
+  </script>
+  <script src="assets/js/modules/public/register.js">
+  </script>
+ </body>
+</html>
+

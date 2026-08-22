@@ -1,0 +1,610 @@
+/* =========================================================
+   SPORTIVO - TRAINEE MODULE STYLES
+   ========================================================= */
+
+/* Keep the sport selector immediately beside the page title. */
+.page-head:has(.title-sport-filter) {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+
+.page-head:has(.title-sport-filter) > div {
+  flex: 0 1 auto;
+}
+
+.title-sport-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+  min-width: 230px;
+  margin: 0;
+  padding: 7px 9px 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.035);
+}
+
+.title-sport-filter span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.title-sport-filter select {
+  min-width: 130px;
+  min-height: 39px;
+  padding: 0 34px 0 11px;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  background: #f2f2ef;
+  color: #111111;
+  font: 700 0.86rem Inter, sans-serif;
+  cursor: pointer;
+}
+
+.title-sport-filter select:disabled {
+  color: #555555;
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* Completed rows are visually inactive. */
+.row-completed {
+  background: #f1f1ee;
+  color: #888883;
+}
+
+.row-completed td {
+  opacity: 0.86;
+}
+
+.session-actions,
+.completed-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.action-disabled,
+.action-disabled:hover,
+.action-disabled:focus {
+  border: 1px solid #d7d7d2 !important;
+  background: #e5e5e1 !important;
+  color: #9a9a94 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.feedback-history {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.feedback-history:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .page-head:has(.title-sport-filter) {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 680px) {
+  .page-head:has(.title-sport-filter) {
+    align-items: stretch;
+  }
+
+  .title-sport-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .title-sport-filter select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   V32 TRAINEE EXPERIENCE
+========================================================= */
+.title-actions,
+.title-filter-group {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.add-sport-button {
+  white-space: nowrap;
+}
+
+.session-status-filter {
+  min-width: 170px;
+}
+
+.session-action-requested {
+  background: #f8d7da !important;
+  color: #7a2028 !important;
+  border-color: #e9aeb4 !important;
+  cursor: not-allowed !important;
+}
+
+.progress-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: 20px;
+}
+
+.progress-score-card,
+.progress-history-card {
+  min-height: 100%;
+}
+
+.rating-list {
+  display: grid;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+}
+
+.rating-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #ececec;
+  overflow: hidden;
+}
+
+.rating-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #171717;
+}
+
+.progress-highlight {
+  padding: 18px;
+  border-radius: 18px;
+  background: #f8d7da;
+  border: 1px solid #efb8bd;
+  color: #5d2025;
+  margin-top: 18px;
+}
+
+.progress-history-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.progress-history-item {
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  background: #fff;
+}
+
+@media (max-width: 850px) {
+  .progress-overview { grid-template-columns: 1fr; }
+  .rating-row { grid-template-columns: 100px 1fr 36px; }
+}
+
+
+/* V33 requested action colors */
+.session-reschedule-requested { background:#111 !important; border-color:#111 !important; color:#fff !important; }
+.session-cancel-requested { background:#c94c55 !important; border-color:#c94c55 !important; color:#fff !important; }
+
+
+/* =========================================================
+   V34 PROGRESS REDESIGN
+   ========================================================= */
+.progress-profile-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid #deded9;
+  border-radius: 20px;
+  background: #deded9;
+}
+
+.progress-profile-strip > div {
+  padding: 17px 20px;
+  background: #fff;
+}
+
+.progress-profile-strip span,
+.progress-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: #7a7d76;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.progress-profile-strip strong {
+  font-size: 1.08rem;
+}
+
+.progress-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.progress-main-card,
+.progress-history-card {
+  padding: 24px !important;
+}
+
+.progress-summary-panel {
+  display: grid;
+  grid-template-columns: minmax(180px, .38fr) minmax(0, 1fr);
+  gap: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e3e3de;
+}
+
+.progress-score-block {
+  padding: 20px;
+  border-radius: 20px;
+  background: #171717;
+  color: #fff;
+}
+
+.progress-score-block .progress-kicker {
+  color: rgba(255,255,255,.6);
+}
+
+.progress-score-line {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.progress-score-line strong {
+  font-size: 3.2rem;
+  line-height: .95;
+}
+
+.progress-score-line span {
+  color: rgba(255,255,255,.6);
+  font-size: 1rem;
+}
+
+.progress-assessment-label {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.progress-summary-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-summary-copy p {
+  margin: 4px 0 16px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.overall-progress-track {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ededE9;
+}
+
+.overall-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #171717;
+}
+
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.rating-grid .rating-row {
+  grid-template-columns: 112px 1fr 40px;
+  padding: 14px 15px;
+  border: 1px solid #e3e3de;
+  border-radius: 16px;
+  background: #fafaf8;
+}
+
+.rating-grid .rating-row > span {
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.rating-grid .rating-row strong {
+  font-size: .92rem;
+}
+
+.rating-grid .rating-track {
+  height: 9px;
+  background: #e4e5e1;
+}
+
+.next-focus-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 17px 18px;
+  border: 1px solid #d8dde5;
+  border-radius: 18px;
+  background: #f1f4f8;
+}
+
+.next-focus-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.next-focus-card span {
+  display: block;
+  color: #727782;
+  font-size: .8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.next-focus-card strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1.04rem;
+}
+
+.progress-section-heading,
+.history-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.progress-section-heading h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.history-count {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #171717;
+  color: #fff;
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+.progress-history-list {
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.progress-history-item {
+  padding: 17px;
+  border: 1px solid #e1e1dc;
+  border-radius: 17px;
+  background: #fafaf8;
+}
+
+.progress-history-item.is-latest {
+  border-color: #bfc8d6;
+  background: #f4f6f9;
+}
+
+.history-date {
+  color: #6f726c;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.history-latest-badge {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #171717;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 800;
+}
+
+.progress-history-item h4 {
+  margin: 10px 0 4px;
+  font-size: 1.08rem;
+}
+
+.progress-history-item p {
+  margin: 0 0 12px;
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+.history-focus {
+  padding-top: 11px;
+  border-top: 1px solid #e1e1dc;
+}
+
+.history-focus span {
+  display: block;
+  color: #777a74;
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-weight: 800;
+}
+
+.history-focus strong {
+  display: block;
+  margin-top: 2px;
+  font-size: .93rem;
+}
+
+.progress-empty-state {
+  padding: 28px;
+  text-align: center;
+  border: 1px dashed #d6d6d1;
+  border-radius: 18px;
+  background: #fafaf8;
+}
+
+@media (max-width: 1020px) {
+  .progress-layout,
+  .progress-summary-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .rating-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .progress-profile-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .rating-grid .rating-row {
+    grid-template-columns: 100px 1fr 36px;
+  }
+}
+
+
+/* =========================================================
+   V35 - TITLE CONTROLS + PASTEL PROGRESS
+   ========================================================= */
+/* Page controls now sit UNDER the title instead of beside it. */
+.page-head,
+.page-head:has(.title-sport-filter) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+}
+
+.page-head > div,
+.page-head:has(.title-sport-filter) > div {
+  width: 100%;
+  flex: none !important;
+}
+
+.page-head > .title-sport-filter,
+.page-head > .title-actions,
+.page-head > .title-filter-group,
+.page-head > .actions,
+.page-head > .btn,
+.page-head > a.btn {
+  margin-top: 0;
+}
+
+.title-actions,
+.title-filter-group {
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Clean monochrome progress design. */
+.progress-profile-strip {
+  gap: 12px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.progress-profile-strip > div {
+  padding: 20px 22px !important;
+  background: #ffffff !important;
+  border: 1px solid #deded9 !important;
+  border-radius: 18px;
+}
+
+.progress-main-card,
+.progress-history-card,
+.progress-score-block,
+.progress-summary-copy,
+.rating-grid .rating-row,
+.next-focus-card,
+.progress-history-item,
+.progress-history-item.is-latest {
+  background: #ffffff !important;
+  color: #171717 !important;
+  border-color: #deded9 !important;
+}
+
+.progress-score-block,
+.progress-summary-copy {
+  padding: 18px 20px;
+  border: 1px solid #deded9 !important;
+  border-radius: 20px;
+}
+
+.overall-progress-track,
+.rating-track {
+  background: #ececea !important;
+}
+
+.overall-progress-track span,
+.rating-fill {
+  background: #171717 !important;
+}
+
+.next-focus-icon,
+.history-latest-badge,
+.history-count {
+  background: #f1f1ef !important;
+  color: #171717 !important;
+  border-color: #deded9 !important;
+}
+
+/* User and trainee warning card: clearly visible pastel red. */
+.account-warning-card {
+  background: #fde8ea !important;
+  border-color: #efb9bf !important;
+}

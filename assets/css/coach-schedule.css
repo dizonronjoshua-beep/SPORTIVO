@@ -1,0 +1,479 @@
+/* =========================================================
+   SPORTIVO - COACH SCHEDULE
+   Shared visual language with User and Trainee portals.
+========================================================= */
+
+.coach-schedule-heading {
+  margin-bottom: 22px;
+}
+
+.coach-schedule-heading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.coach-sort-control {
+  display: grid;
+  gap: 7px;
+  min-width: 250px;
+}
+
+.coach-sort-control span {
+  color: #777a75;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.coach-sort-control select {
+  min-height: 48px;
+}
+
+.coach-add-session-button {
+  min-height: 48px;
+}
+
+.coach-schedule-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.coach-calendar-card {
+  position: sticky;
+  top: 96px;
+  padding: 20px;
+}
+
+.coach-calendar-toolbar {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.coach-calendar-toolbar strong {
+  text-align: center;
+  font-size: 1.08rem;
+}
+
+.calendar-nav-button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #deded9;
+  border-radius: 13px;
+  background: #fff;
+  color: #171717;
+  font-size: 1.45rem;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.calendar-nav-button:hover {
+  background: #171717;
+  color: #fff;
+}
+
+.coach-calendar-weekdays,
+.coach-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
+}
+
+.coach-calendar-weekdays {
+  margin-bottom: 8px;
+}
+
+.coach-calendar-weekdays span {
+  color: #858781;
+  font-size: .7rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.coach-calendar-empty {
+  min-height: 44px;
+}
+
+.coach-calendar-day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: #f6f6f3;
+  color: #1a1a1a;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.coach-calendar-day:hover {
+  border-color: #c9cac6;
+  background: #fff;
+}
+
+.coach-calendar-day.has-session {
+  background: #eeeee9;
+  border-color: #dadbd6;
+}
+
+.coach-calendar-day.is-selected {
+  background: #171717;
+  border-color: #171717;
+  color: #fff;
+}
+
+.coach-calendar-day.is-today:not(.is-selected) {
+  box-shadow: inset 0 0 0 1px #171717;
+}
+
+.coach-calendar-day small {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #171717;
+  color: #fff;
+  font-size: .58rem;
+}
+
+.coach-calendar-day.is-selected small {
+  background: #fff;
+  color: #171717;
+}
+
+.coach-calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e2de;
+  color: #6f726d;
+  font-size: .78rem;
+}
+
+.coach-calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e3e3df;
+}
+
+.legend-dot.has-session {
+  border: 1px solid #bfc0bc;
+  background: #eeeee9;
+}
+
+.legend-dot.selected-day {
+  background: #171717;
+}
+
+.coach-day-panel {
+  min-width: 0;
+}
+
+.coach-day-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.coach-day-header h3 {
+  margin: 4px 0 0;
+  font-size: 1.45rem;
+}
+
+.section-kicker {
+  color: #83857f;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.coach-day-count {
+  color: #747771;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.coach-session-list {
+  display: grid;
+  gap: 14px;
+}
+
+.coach-session-card {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #dddeda;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(25, 25, 25, .035);
+}
+
+.coach-session-card.is-completed,
+.coach-session-card.is-cancelled {
+  opacity: .68;
+}
+
+.coach-session-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding-right: 16px;
+  border-right: 1px solid #e3e3df;
+}
+
+.coach-session-time strong {
+  font-size: 1.35rem;
+}
+
+.coach-session-time span {
+  color: #797c76;
+  font-size: .84rem;
+}
+
+.coach-session-main {
+  min-width: 0;
+}
+
+.coach-session-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.coach-session-topline h4 {
+  margin: 3px 0 0;
+  font-size: 1.15rem;
+}
+
+.session-sport {
+  color: #777a74;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.coach-session-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.coach-session-meta span {
+  display: grid;
+  gap: 4px;
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: #f7f7f4;
+  color: #3a3a39;
+  font-size: .84rem;
+}
+
+.coach-session-meta b {
+  color: #858781;
+  font-size: .66rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.coach-trainee-section {
+  padding-top: 14px;
+  border-top: 1px solid #e4e4e0;
+}
+
+.coach-trainee-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.coach-trainee-heading span,
+.coach-no-trainees {
+  color: #7b7e78;
+  font-size: .82rem;
+}
+
+.coach-trainee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.coach-trainee-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px 6px 6px;
+  border: 1px solid #e0e1dd;
+  border-radius: 999px;
+  background: #fafaf8;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.coach-trainee-chip i {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #171717;
+  color: #fff;
+  font-size: .62rem;
+  font-style: normal;
+}
+
+.coach-session-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.coach-session-actions .btn {
+  white-space: nowrap;
+}
+
+.coach-session-actions .btn:disabled {
+  background: #ecece8 !important;
+  border-color: #deded9 !important;
+  color: #969993 !important;
+  cursor: not-allowed;
+}
+
+.coach-empty-schedule {
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  padding: 40px;
+  border: 1px dashed #cfd0cc;
+  border-radius: 24px;
+  background: #fff;
+  text-align: center;
+}
+
+.coach-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  background: #f0f0ed;
+  font-size: 1.45rem;
+}
+
+.coach-empty-schedule h4 {
+  margin: 0 0 7px;
+  font-size: 1.15rem;
+}
+
+.coach-empty-schedule p {
+  max-width: 420px;
+  margin: 0 0 18px;
+  color: #777a74;
+}
+
+.coach-session-form {
+  display: grid;
+  gap: 18px;
+}
+
+.coach-detail-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.coach-detail-summary > div {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  border: 1px solid #e1e1dd;
+  border-radius: 15px;
+  background: #fafaf8;
+}
+
+.coach-detail-summary > div.wide {
+  grid-column: 1 / -1;
+}
+
+.coach-detail-summary span {
+  color: #83867f;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.coach-modal-trainees {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e2de;
+}
+
+@media (max-width: 1050px) {
+  .coach-schedule-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-calendar-card {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .coach-session-card {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-session-time {
+    padding-right: 0;
+    padding-bottom: 12px;
+    border-right: 0;
+    border-bottom: 1px solid #e3e3df;
+  }
+
+  .coach-session-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-session-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

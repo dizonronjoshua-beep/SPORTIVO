@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="SPORTIVO Management System" name="description"/>
+  <title>
+   Login | SPORTIVO
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+  <link href="assets/css/modules/public/login.css" rel="stylesheet"/>
+   <link href="assets/css/palette.css" rel="stylesheet"/>
+  <link href="assets/css/v65-integrated.css" rel="stylesheet"/>
+</head>
+ <body>
+  <main class="auth-page">
+   <section class="auth-card">
+    <aside class="auth-side">
+     <a class="brand auth-brand" href="index.html">
+      <span class="brand-dots">
+       <i>
+       </i>
+       <i>
+       </i>
+       <i>
+       </i>
+      </span>
+      <strong>
+       SPORTIVO
+      </strong>
+     </a>
+     <div>
+      <span class="eyebrow light">
+       ONE LOGIN
+      </span>
+      <h1>
+       Welcome.
+      </h1>
+      <p>
+       Book sports courts, request expert training, and track your athletic journey all in one place.
+      </p>
+     </div>
+    </aside>
+    <section class="auth-panel">
+     <a aria-label="Close" class="icon-btn auth-close" href="index.html">
+      ×
+     </a>
+     <span class="eyebrow">
+      MEMBER ACCESS
+     </span>
+     <h2>
+      Login
+     </h2>
+     <form class="auth-form" id="loginForm">
+      <div class="field">
+       <label>
+        Email Address
+       </label>
+       <input autocomplete="email" name="email" required="" type="email"/>
+      </div>
+      <div class="field">
+       <label>
+        Password
+       </label>
+       <div class="password-wrap">
+        <input autocomplete="current-password" name="password" required="" type="password"/>
+        <button aria-label="Show password" class="password-toggle" onclick="togglePassword(this)" title="Show password" type="button">
+         <svg aria-hidden="true" viewbox="0 0 24 24">
+          <path d="M2.3 12s3.5-6 9.7-6 9.7 6 9.7 6-3.5 6-9.7 6S2.3 12 2.3 12Z">
+          </path>
+          <circle cx="12" cy="12" r="2.7">
+          </circle>
+         </svg>
+        </button>
+       </div>
+      </div>
+      <div class="auth-links">
+       <label>
+        <input type="checkbox"/>
+        Remember me
+       </label>
+       <a href="forgot-password.html">
+        Forgot Password?
+       </a>
+      </div>
+      <button class="btn btn-dark full">
+       Login
+      </button>
+      <div class="auth-status" id="authStatus">
+      </div>
+      <p class="auth-switch">
+       New to SPORTIVO?
+       <a href="register.html">
+        <b>
+         Create an account
+        </b>
+       </a>
+      </p>
+     </form>
+    </section>
+   </section>
+  </main>
+  <div class="modal-backdrop" id="modalRoot">
+  </div>
+  <div class="toast">
+  </div>
+  <script type="module" src="/assets/js/supabase.js"></script>
+  <script src="assets/js/app.js">
+  </script>
+  <script src="assets/js/modules/public/login.js">
+  </script>
+ </body>
+</html>
+

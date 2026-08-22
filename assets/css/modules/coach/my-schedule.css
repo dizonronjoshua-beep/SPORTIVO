@@ -1,0 +1,9 @@
+/* =========================================================
+   SPORTIVO — COACH / My Schedule
+   Page-specific styles only.
+   Shared layout remains in styles.css / portal.css.
+========================================================= */
+
+body[data-module] {
+  /* Module hook intentionally kept available for page-only edits. */
+}

@@ -1,0 +1,75 @@
+/* =========================================================
+   SPORTIVO — ADMIN / COURT MANAGEMENT
+========================================================= */
+
+.court-detail-card {
+  overflow: hidden;
+}
+
+.court-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 18px 0;
+  overflow: hidden;
+  border: 1px solid #e2e2df;
+  border-radius: 14px;
+  background: #e2e2df;
+}
+
+.court-detail-grid > div {
+  padding: 14px;
+  background: #fff;
+}
+
+.court-detail-grid span {
+  display: block;
+  margin-bottom: 4px;
+  color: #777973;
+  font-size: 12px;
+}
+
+.court-detail-grid strong {
+  font-size: 14px;
+}
+
+.court-form-section {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid #e1e1de;
+  border-radius: 16px;
+  background: #fafaf8;
+}
+
+.court-form-section h4 {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+
+.court-form-section > .muted {
+  margin: -6px 0 16px;
+  line-height: 1.5;
+}
+
+.court-photo-upload-box {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.court-photo-upload-box img {
+  width: 160px;
+  height: 105px;
+  object-fit: cover;
+  border: 1px solid #dededb;
+  border-radius: 14px;
+  background: #efefec;
+}
+
+@media (max-width: 680px) {
+  .court-detail-grid,
+  .court-photo-upload-box {
+    grid-template-columns: 1fr;
+  }
+}

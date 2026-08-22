@@ -1,0 +1,996 @@
+/* =========================================================
+   SPORTIVO - TRAINEE MODULE STYLES
+   ========================================================= */
+
+/* Keep the sport selector immediately beside the page title. */
+.page-head:has(.title-sport-filter) {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+
+.page-head:has(.title-sport-filter) > div {
+  flex: 0 1 auto;
+}
+
+.title-sport-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+  min-width: 230px;
+  margin: 0;
+  padding: 7px 9px 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.035);
+}
+
+.title-sport-filter span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.title-sport-filter select {
+  min-width: 130px;
+  min-height: 39px;
+  padding: 0 34px 0 11px;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  background: #f2f2ef;
+  color: #111111;
+  font: 700 0.86rem Inter, sans-serif;
+  cursor: pointer;
+}
+
+.title-sport-filter select:disabled {
+  color: #555555;
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* Completed rows are visually inactive. */
+.row-completed {
+  background: #f1f1ee;
+  color: #888883;
+}
+
+.row-completed td {
+  opacity: 0.86;
+}
+
+.session-actions,
+.completed-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.action-disabled,
+.action-disabled:hover,
+.action-disabled:focus {
+  border: 1px solid #d7d7d2 !important;
+  background: #e5e5e1 !important;
+  color: #9a9a94 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.feedback-history {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.feedback-history:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .page-head:has(.title-sport-filter) {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 680px) {
+  .page-head:has(.title-sport-filter) {
+    align-items: stretch;
+  }
+
+  .title-sport-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .title-sport-filter select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   SEPARATED MODULE PAGES
+   Shared layout safeguards for the V30 file structure.
+========================================================= */
+
+.module-nav a,
+.account-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.module-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.module-nav a.active {
+  color: #111;
+  background: #fff;
+}
+
+.profile-entry {
+  text-decoration: none;
+}
+
+.portal-page,
+.page-head,
+.card,
+.table-wrap,
+.field,
+.actions,
+.toolbar,
+.title-filter-row {
+  min-width: 0;
+}
+
+.page-head h2,
+.top-title h1,
+.card h2,
+.card h3,
+.section-title,
+button,
+a,
+label,
+th,
+td {
+  overflow-wrap: anywhere;
+}
+
+button,
+.btn,
+.side-nav a {
+  white-space: normal;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   V33 READABILITY + CLEAN TIMETABLE + ACTION FEEDBACK
+   ========================================================= */
+
+/* More readable typography across all portal modules. */
+.sportivo-portal {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.sportivo-portal .top-title h1 {
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.sportivo-portal .page-head h2 {
+  font-size: clamp(3.2rem, 5.4vw, 5.4rem);
+  line-height: .95;
+}
+
+.sportivo-portal .card h3,
+.sportivo-portal .section-title {
+  font-size: 1.28rem;
+  line-height: 1.3;
+}
+
+.sportivo-portal .card h4 {
+  font-size: 1.08rem;
+}
+
+.sportivo-portal .info-row,
+.sportivo-portal .data-table,
+.sportivo-portal .field input,
+.sportivo-portal .field select,
+.sportivo-portal .field textarea {
+  font-size: 1rem;
+}
+
+.sportivo-portal .field label,
+.sportivo-portal .data-table th {
+  font-size: .9rem;
+}
+
+.sportivo-portal .btn {
+  font-size: .98rem;
+  min-height: 44px;
+  padding-inline: 18px;
+}
+
+.sportivo-portal .btn-sm {
+  font-size: .9rem;
+  min-height: 38px;
+}
+
+.sportivo-portal .muted,
+.sportivo-portal .small {
+  font-size: .93rem;
+}
+
+/* Dashboard no longer emphasizes account standing/warnings. */
+.dashboard-reminder-card {
+  background: #fff;
+}
+
+/* The timetable uses stacked time rows and responsive court cards.
+   It never needs a horizontal scrollbar. */
+.timetable-card {
+  overflow: visible !important;
+}
+
+#timeTable {
+  width: 100%;
+  overflow: visible !important;
+}
+
+.organized-timetable {
+  display: grid;
+  gap: 12px;
+}
+
+.timetable-time-row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  padding: 12px;
+  border: 1px solid #e1e1dc;
+  border-radius: 20px;
+  background: #fafaf8;
+}
+
+.timetable-time-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 15px;
+  background: #111;
+  color: #fff;
+}
+
+.timetable-time-label small {
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, .62);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.timetable-time-label strong {
+  font-size: 1.05rem;
+}
+
+.timetable-court-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.court-slot-card {
+  min-width: 0;
+  min-height: 88px;
+  padding: 13px 14px;
+  border: 1px solid #deded9;
+  border-radius: 16px;
+  text-align: left;
+  background: #fff;
+  color: #111;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.court-slot-card span,
+.court-slot-card small,
+.court-slot-card strong {
+  display: block;
+}
+
+.court-slot-name {
+  font-weight: 800;
+}
+
+.court-slot-card small {
+  margin-top: 2px;
+  color: #777;
+  font-size: .8rem;
+}
+
+.court-slot-card strong {
+  margin-top: 9px;
+  font-size: .85rem;
+}
+
+.court-slot-card.available {
+  background: #f4faf6;
+  border-color: #bddbc8;
+  cursor: pointer;
+}
+
+.court-slot-card.available strong {
+  color: #26754b;
+}
+
+.court-slot-card.available:hover {
+  transform: translateY(-2px);
+  border-color: #6eaf86;
+  box-shadow: 0 10px 22px rgba(37, 117, 75, .08);
+}
+
+.court-slot-card.pending {
+  background: #fff5dc;
+  border-color: #ead19a;
+  color: #795714;
+}
+
+.court-slot-card.confirmed {
+  background: #ededeb;
+  border-color: #d0d0cc;
+}
+
+.court-slot-card.training {
+  background: #ece8f7;
+  border-color: #cfc5e7;
+}
+
+.court-slot-card.maintenance {
+  background: #f0f0ee;
+  color: #777;
+}
+
+.court-slot-card:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+/* Hide cosmetic scrollbars in fixed navigation areas without disabling scroll. */
+.sidebar,
+.module-nav,
+.account-nav {
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar,
+.module-nav::-webkit-scrollbar,
+.account-nav::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Training schedule action feedback. */
+.session-reschedule-requested,
+.session-reschedule-requested:hover,
+.session-reschedule-requested:focus {
+  background: #111 !important;
+  border-color: #111 !important;
+  color: #fff !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.session-cancel-requested,
+.session-cancel-requested:hover,
+.session-cancel-requested:focus {
+  background: #c94c55 !important;
+  border-color: #c94c55 !important;
+  color: #fff !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Announcement legend: fresh green vs softer previous green. */
+.notification-dot.notification-new {
+  background: #2e9a62 !important;
+}
+
+.notification-dot.notification-previous {
+  background: #91ad9b !important;
+}
+
+.announcement-card.notification-new {
+  border-left: 5px solid #2e9a62 !important;
+  background: #f2fbf6 !important;
+}
+
+.announcement-card.notification-previous {
+  border-left: 5px solid #91ad9b !important;
+  background: #f8faf8 !important;
+}
+
+.notification-label {
+  color: #355d45;
+}
+
+/* Back control for second-sport enrollment. */
+.training-back-button {
+  white-space: nowrap;
+}
+
+/* Keep pastel-red reminders readable. */
+.reminder-box,
+.notice.reminder,
+.minor-guardian-panel {
+  background: #fde7e8 !important;
+  border-color: #efc1c5 !important;
+  color: #6d2b31 !important;
+}
+
+@media (max-width: 760px) {
+  .sportivo-portal {
+    font-size: 16px;
+  }
+
+  .timetable-time-row {
+    grid-template-columns: 1fr;
+  }
+
+  .timetable-time-label {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .timetable-time-label small {
+    margin: 0;
+  }
+
+  .timetable-court-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   V34 DASHBOARD WARNING + MINOR GUARDIAN REFINEMENT
+   ========================================================= */
+.account-warning-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  border: 1px solid #f0b8bd;
+  border-radius: 22px;
+  background: #fde8ea;
+  color: #5b2027;
+  box-shadow: 0 12px 30px rgba(128, 41, 50, .06);
+}
+
+.warning-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c94c55;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.warning-eyebrow {
+  display: block;
+  margin-bottom: 2px;
+  color: #9b3d46;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+}
+
+.account-warning-card h3 {
+  margin: 0 0 3px;
+  font-size: 1.3rem;
+}
+
+.account-warning-card p {
+  margin: 0;
+  color: #7a3a40;
+  font-size: .96rem;
+}
+
+.warning-standing {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.66);
+  color: #7c2730;
+  font-size: .86rem;
+  white-space: nowrap;
+}
+
+.minor-guardian-panel {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #dcdedb !important;
+  border-radius: 20px;
+  background: #f7f7f4 !important;
+  color: #1a1a1a !important;
+}
+
+.minor-guardian-panel .reminder-text {
+  color: #666863 !important;
+}
+
+.minor-guardian-panel .age-pill {
+  border: 1px solid #d6d7d3;
+  background: #fff;
+  color: #333;
+}
+
+.minor-guardian-panel small {
+  color: #777a74;
+}
+
+@media (max-width: 720px) {
+  .account-warning-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .warning-standing {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+
+/* =========================================================
+   V35 - TITLE CONTROLS + PASTEL PROGRESS
+   ========================================================= */
+/* Page controls now sit UNDER the title instead of beside it. */
+.page-head,
+.page-head:has(.title-sport-filter) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+}
+
+.page-head > div,
+.page-head:has(.title-sport-filter) > div {
+  width: 100%;
+  flex: none !important;
+}
+
+.page-head > .title-sport-filter,
+.page-head > .title-actions,
+.page-head > .title-filter-group,
+.page-head > .actions,
+.page-head > .btn,
+.page-head > a.btn {
+  margin-top: 0;
+}
+
+.title-actions,
+.title-filter-group {
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Clean monochrome progress design. */
+.progress-profile-strip {
+  gap: 12px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.progress-profile-strip > div {
+  padding: 20px 22px !important;
+  background: #ffffff !important;
+  border: 1px solid #deded9 !important;
+  border-radius: 18px;
+}
+
+.progress-main-card,
+.progress-history-card,
+.progress-score-block,
+.progress-summary-copy,
+.rating-grid .rating-row,
+.next-focus-card,
+.progress-history-item,
+.progress-history-item.is-latest {
+  background: #ffffff !important;
+  color: #171717 !important;
+  border-color: #deded9 !important;
+}
+
+.progress-score-block,
+.progress-summary-copy {
+  padding: 18px 20px;
+  border: 1px solid #deded9 !important;
+  border-radius: 20px;
+}
+
+.overall-progress-track,
+.rating-track {
+  background: #ececea !important;
+}
+
+.overall-progress-track span,
+.rating-fill {
+  background: #171717 !important;
+}
+
+.next-focus-icon,
+.history-latest-badge,
+.history-count {
+  background: #f1f1ef !important;
+  color: #171717 !important;
+  border-color: #deded9 !important;
+}
+
+/* User and trainee warning card: clearly visible pastel red. */
+.account-warning-card {
+  background: #fde8ea !important;
+  border-color: #efb9bf !important;
+}
+
+
+/* =========================================================
+   V38 - Coach dashboard + training plan management
+========================================================= */
+.coach-dashboard-schedule {
+  padding: 22px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.section-heading-row h3 {
+  margin: 4px 0 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #77776f;
+}
+
+.empty-state {
+  padding: 28px;
+  border: 1px dashed #d8d8d2;
+  border-radius: 16px;
+  color: #74746d;
+  text-align: center;
+}
+
+.subtle-note {
+  max-width: 560px;
+  padding: 12px 14px;
+  background: #f4f4f1;
+  border: 1px solid #ddddda;
+  border-radius: 14px;
+  color: #55554f;
+  line-height: 1.5;
+}
+
+.modal-heading {
+  margin-bottom: 20px;
+}
+
+.modal-heading h3 {
+  margin: 5px 0 6px;
+}
+
+.trainee-plan-card {
+  padding: 24px;
+}
+
+.training-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 16px;
+}
+
+.training-plan-grid > div,
+.plan-focus-block {
+  padding: 16px;
+  border: 1px solid #ddddda;
+  border-radius: 15px;
+  background: #fafaf8;
+}
+
+.training-plan-grid span,
+.plan-focus-block span,
+.plan-coach-notes span {
+  display: block;
+  margin-bottom: 5px;
+  color: #77776f;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.training-plan-grid strong,
+.plan-focus-block strong {
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.plan-focus-block + .plan-focus-block {
+  margin-top: 10px;
+}
+
+.plan-coach-notes {
+  margin-top: 14px;
+  padding: 16px;
+  border-left: 4px solid #171717;
+  background: #f5f5f2;
+  border-radius: 0 14px 14px 0;
+}
+
+.plan-coach-notes p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.plan-updated-at {
+  margin: 16px 0 0;
+}
+
+.plan-empty {
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .section-heading-row {
+    flex-direction: column;
+  }
+
+  .training-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   V39 - Detailed coach training plan
+========================================================= */
+.detailed-plan-form {
+  display: grid;
+  gap: 18px;
+}
+
+.plan-form-section {
+  padding: 20px;
+  border: 1px solid #dfdfda;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.plan-form-section-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ecece8;
+}
+
+.plan-form-section-head h4 {
+  margin: 0 0 4px;
+  font-size: 1.02rem;
+}
+
+.plan-form-section-head p {
+  margin: 0;
+  color: #77776f;
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.plan-step {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #171717;
+  color: #fff;
+  font-size: .73rem;
+  font-weight: 800;
+}
+
+.detailed-plan-form textarea {
+  min-height: 92px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.plan-modal-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 14px 0 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 28%);
+}
+
+.plan-intro {
+  margin: 5px 0 0;
+}
+
+.training-plan-overview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trainee-plan-section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e6e6e1;
+}
+
+.trainee-plan-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.trainee-plan-section-head > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d6d6d0;
+  border-radius: 50%;
+  font-size: .7rem;
+  font-weight: 800;
+  color: #55554f;
+}
+
+.trainee-plan-section-head h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.trainee-plan-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trainee-plan-detail {
+  padding: 15px;
+  border: 1px solid #dfdfda;
+  border-radius: 14px;
+  background: #fafaf8;
+}
+
+.trainee-plan-detail span {
+  display: block;
+  margin-bottom: 6px;
+  color: #77776f;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.trainee-plan-detail p {
+  margin: 0;
+  color: #252522;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+@media (max-width: 760px) {
+  .training-plan-overview-grid,
+  .trainee-plan-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-form-section {
+    padding: 16px;
+  }
+}
+
+/* V40 - Detailed training plan dropdown fields */
+.training-plan-choice select {
+  width: 100%;
+}
+
+.training-plan-choice .plan-other-input {
+  width: 100%;
+  margin-top: 10px;
+  resize: vertical;
+}
+
+.training-plan-choice .plan-other-input:not(.hidden) {
+  display: block;
+}
+
+
+/* Court booking price estimate */
+.booking-price-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  margin: 16px 0;
+  overflow: hidden;
+  border: 1px solid #dededb;
+  border-radius: 14px;
+  background: #dededb;
+}
+
+.booking-price-summary > div,
+.booking-price-summary > span {
+  padding: 13px;
+  background: #f8f8f6;
+}
+
+.booking-price-summary span {
+  display: block;
+  color: #777973;
+  font-size: 12px;
+}
+
+.booking-price-summary strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.booking-price-summary .booking-price-total {
+  background: #11110f;
+  color: #fff;
+}
+
+.booking-price-summary .booking-price-total span {
+  color: #c9c9c6;
+}
+
+@media (max-width: 900px) {
+  .booking-price-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

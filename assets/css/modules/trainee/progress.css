@@ -1,0 +1,302 @@
+/* =========================================================
+   SPORTIVO — TRAINEE / PROGRESS
+   Clean neutral progress dashboard.
+========================================================= */
+
+body[data-module="progress"] .portal-page {
+  font-size: 16px;
+}
+
+.progress-context-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 18px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.progress-context-card > div {
+  padding: 20px 22px;
+  border-right: 1px solid #e7e7e4;
+}
+
+.progress-context-card > div:last-child {
+  border-right: 0;
+}
+
+.progress-context-card span,
+.progress-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #777973;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.progress-context-card strong {
+  color: #11110f;
+  font-size: 18px;
+}
+
+.progress-overview-card {
+  display: grid;
+  grid-template-columns: minmax(240px, .72fr) minmax(0, 1.7fr);
+  padding: 0;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.progress-score-panel {
+  padding: 28px;
+  border-right: 1px solid #e5e5e2;
+  background: #11110f;
+  color: #fff;
+}
+
+.progress-score-panel .progress-label {
+  color: #c8c8c5;
+}
+
+.progress-big-score {
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  margin: 18px 0 8px;
+}
+
+.progress-big-score strong {
+  font-size: 56px;
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+
+.progress-big-score span {
+  margin-bottom: 6px;
+  color: #c5c5c2;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.progress-assessment-name {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.progress-date {
+  margin-top: 10px;
+  color: #c5c5c2;
+  font-size: 14px;
+}
+
+.progress-summary-panel-v2 {
+  padding: 28px 30px;
+}
+
+.progress-summary-panel-v2 h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.progress-summary-panel-v2 p {
+  max-width: 760px;
+  margin: 0;
+  color: #4e504b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.progress-focus-box {
+  margin-top: 24px;
+  padding: 17px 18px;
+  border: 1px solid #dededb;
+  border-radius: 16px;
+  background: #f7f7f4;
+}
+
+.progress-focus-box span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6d6f69;
+  font-size: 13px;
+}
+
+.progress-focus-box strong {
+  font-size: 17px;
+}
+
+.progress-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.progress-metric-card {
+  padding: 20px;
+  border: 1px solid #dededb;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.progress-metric-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.progress-metric-head span {
+  color: #444641;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.progress-metric-head strong {
+  font-size: 18px;
+}
+
+.progress-metric-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ececea;
+}
+
+.progress-metric-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #151513;
+}
+
+.progress-history-v2 {
+  padding: 24px;
+}
+
+.progress-section-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e4e4e1;
+}
+
+.progress-section-title h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.progress-section-title > strong {
+  color: #6c6e68;
+  font-size: 14px;
+}
+
+.progress-history-list-v2 {
+  display: grid;
+}
+
+.progress-history-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 84px;
+  gap: 22px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid #e8e8e5;
+}
+
+.progress-history-row:last-child {
+  border-bottom: 0;
+}
+
+.progress-history-date span {
+  display: block;
+  font-weight: 700;
+}
+
+.progress-history-date small {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #11110f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.progress-history-copy strong {
+  font-size: 17px;
+}
+
+.progress-history-copy p {
+  margin: 7px 0 9px;
+  color: #50524d;
+  line-height: 1.6;
+}
+
+.progress-history-copy span {
+  color: #777973;
+  font-size: 14px;
+}
+
+.progress-history-score {
+  text-align: right;
+}
+
+.progress-history-score strong {
+  font-size: 27px;
+}
+
+.progress-history-score span {
+  color: #777973;
+  font-weight: 700;
+}
+
+.progress-empty-v2 {
+  padding: 32px;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .progress-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .progress-overview-card {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-score-panel {
+    border-right: 0;
+    border-bottom: 1px solid #e5e5e2;
+  }
+}
+
+@media (max-width: 680px) {
+  .progress-context-card,
+  .progress-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-context-card > div {
+    border-right: 0;
+    border-bottom: 1px solid #e7e7e4;
+  }
+
+  .progress-context-card > div:last-child {
+    border-bottom: 0;
+  }
+
+  .progress-history-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .progress-history-score {
+    text-align: left;
+  }
+}
